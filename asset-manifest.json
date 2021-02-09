@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-firebase/static/css/main.d88cc895.chunk.css",
-    "main.js": "/react-firebase/static/js/main.76ae5e13.chunk.js",
-    "main.js.map": "/react-firebase/static/js/main.76ae5e13.chunk.js.map",
+    "main.css": "/react-firebase/static/css/main.1010ee3c.chunk.css",
+    "main.js": "/react-firebase/static/js/main.62ff2ed4.chunk.js",
+    "main.js.map": "/react-firebase/static/js/main.62ff2ed4.chunk.js.map",
     "runtime-main.js": "/react-firebase/static/js/runtime-main.3141c6f5.js",
     "runtime-main.js.map": "/react-firebase/static/js/runtime-main.3141c6f5.js.map",
-    "static/js/2.7b82d587.chunk.js": "/react-firebase/static/js/2.7b82d587.chunk.js",
-    "static/js/2.7b82d587.chunk.js.map": "/react-firebase/static/js/2.7b82d587.chunk.js.map",
+    "static/js/2.290dd804.chunk.js": "/react-firebase/static/js/2.290dd804.chunk.js",
+    "static/js/2.290dd804.chunk.js.map": "/react-firebase/static/js/2.290dd804.chunk.js.map",
     "index.html": "/react-firebase/index.html",
-    "static/css/main.d88cc895.chunk.css.map": "/react-firebase/static/css/main.d88cc895.chunk.css.map",
-    "static/js/2.7b82d587.chunk.js.LICENSE.txt": "/react-firebase/static/js/2.7b82d587.chunk.js.LICENSE.txt"
+    "static/css/main.1010ee3c.chunk.css.map": "/react-firebase/static/css/main.1010ee3c.chunk.css.map",
+    "static/js/2.290dd804.chunk.js.LICENSE.txt": "/react-firebase/static/js/2.290dd804.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3141c6f5.js",
-    "static/js/2.7b82d587.chunk.js",
-    "static/css/main.d88cc895.chunk.css",
-    "static/js/main.76ae5e13.chunk.js"
+    "static/js/2.290dd804.chunk.js",
+    "static/css/main.1010ee3c.chunk.css",
+    "static/js/main.62ff2ed4.chunk.js"
   ]
 }
