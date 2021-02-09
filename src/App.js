@@ -1,88 +1,65 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
 import firebase from 'firebase';
+import { LoginForm } from './Login/LoginForm';
+import { MainPage } from './MainPage/MainPage';
+import { RegisterForm } from './Register/RegisterForm'
 
 function App() {
-  const [second, setSecond] = useState(0);
-
+  const [pageOpen, setPageOpen] = useState(false);
+  const [loginIn, setLoginIn] = useState(false);
+  const [beforLogin, setBeforeLogin] = useState(true);
+  // const [people, setPeople] = useState({});
 
   useEffect(() => {
-    let count = 0;
-    let timer = setInterval(() => {
-      console.log('sec');
-      timerStep(count++)
-    }, 1000);
+    const dataBase = firebase.database();
 
-    return() => {
-      clearInterval(timer);
-    }
+    console.log(dataBase)
   }, []);
 
-  const timerStep = (count) => {
-    setSecond(count);
-  }
+
+  const createAccount = (mail, pass) => {
+    firebase.auth().createUserWithEmailAndPassword(mail, pass)
+      .then(response => {setBeforeLogin(true)})
+      .catch(error => console.log(error));
+  };
   
+  const loginToAccount = (mail, pass) => {
+    firebase.auth().signInWithEmailAndPassword(mail, pass)
+      .then(response => {
+        setLoginIn(true);
+        setBeforeLogin(false);
+      })
+      .catch(error => {
+        setLoginIn(false);
+        setBeforeLogin(false);
+        console.log(error)
+      });
+  }
+
+  const logsOut = () => {
+    firebase.auth().signOut()
+    .then(function() {
+      console.log("Logged out!")
+   }, function(error) {
+      console.log(error.code);
+      console.log(error.message);
+   }).then(response => {
+    setLoginIn(false);
+    setBeforeLogin(true);
+   });
+  }
 
   return (
     <>
-      <div className="App">
-        { `${Math.floor(second / 3600)}:${Math.floor(second / 60 % 60)}:${second % 60}` }
-      </div>
-
-      <div className="Form">
-        <h2 className="Form__titile">Login</h2>
-        <form className="Form__inputs">
-          <input type="text" className="Form__input" />
-          <input type="password" className="Form__input" />
-        </form>
-        <input type="button" className="Form__button"/>
-        <a className="Form__link">Don’t have an account yet?<span>Register</span></a>
-      </div>
-
-      <div className="Form">
-        <h2 className="Form__titile">Login</h2>
-        <form className="Form__inputs">
-          <input type="text" className="Form__input" />
-          <input type="password" className="Form__input" />
-        </form>
-        <input type="button" className="Form__button"/>
-        <a className="Form__link">Don’t have an account yet?<span>Register</span></a>
-      </div>
+     {beforLogin && <LoginForm getLoginDate={loginToAccount}/>}
+      {!loginIn && !beforLogin ? (
+        <RegisterForm getRegisterDate={createAccount} />
+      ) : (
+        loginIn && <MainPage outLogin={logsOut}/>
+      )}
     </>
   );
 }
 
 export default App;
-
-
-// useEffect(() => {
-  //   const dataBase = firebase.database();
-
-  //   // console.log(dataBase)
-  // }, []);
-
-  // const handleMail = ({ target }) => {
-  //   setMail(target.value);
-  // };
-
-  // const handlePass = ({ target }) => {
-  //   setPass(target.value);
-  // };
-
-  // const createAccount = () => {
-  //   firebase.auth().createUserWithEmailAndPassword(mail, pass)
-  //     .catch(error => console.log(error));
-
-
-  //   firebase.auth().signInWithEmailAndPassword(mail, pass)
-  //     .catch(error => console.log(error));
-  // }
-  
-
-
-
-
-
-  
-
-  // console.log(mail, pass);
