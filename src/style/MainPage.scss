@@ -1,0 +1,116 @@
+@import '../App.scss';
+@import './mixins';
+
+.MainPage {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1142px;
+  width: 100%;
+  padding: 0 92px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  @include MediumScreen {
+    flex-direction: column;
+  }
+  @include SmallScreen {
+    top: 44px;
+    transform: translate(-50%);
+  }
+
+  &__clock-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include MediumScreen {
+      margin-bottom: 22px;
+    }
+  
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 47px;
+    @include SmallScreen {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  &__clock {
+    display: flex;
+    justify-content: center;
+    width: 379px;
+    height: 404px;
+    background-color: #C4C4C4;
+    border-radius: 25px;
+    @include SmallScreen {
+      width: 192px;
+      height: 208px;
+    }
+  }
+
+  &__clock-image {
+    margin-top: 97px;
+    background-image: url("../image/icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 183px;
+    height: 217px;
+    @include SmallScreen {
+      background-image: url("../image/smallIcon.svg");
+      margin-top: 49px;
+      width: 93px;
+      height: 110px;
+    }
+  }
+
+  &__timer {
+    margin-top: 23px;
+    font-family: inherit;
+    font-size: 40px;
+    line-height: 47px;
+    @include MediumScreen {
+      margin-top: 9px;
+    }
+    @include SmallScreen {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 45px;
+    top: 48px;
+    width: 104px;
+    height: 34px;
+    line-height: 34px;
+    text-align: start;
+    background-color: white;
+    border: none;
+    font-family: Ubuntu, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, border-radius 0.3s;
+    &:hover{
+      transform: scale(1.1);
+      background-color: #C4C4C4;
+      border-radius: 10px;
+    }
+    @include SmallScreen {
+      width: 80px;
+      top: 24px;
+      right: 20px;
+      font-size: 18px;
+      line-height: 21px;
+      text-align: center;
+    }
+  }
+}
