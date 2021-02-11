@@ -121,7 +121,7 @@ export const RegisterForm = ({getRegisterDate}) => {
             value="Sing up"
           />
         </form>
-        <a href="/" className="Form__link Form__link--register">
+        <a href="" className="Form__link Form__link--register">
           Already registered?
           <span className="Form__link--black"> Log in</span>
         </a>
