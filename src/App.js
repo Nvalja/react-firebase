@@ -79,6 +79,10 @@ function App() {
     setBeforeLogin(false);
   };
 
+  const linkToLogin = () => {
+    setBeforeLogin(true);
+  };
+
   return (
     <>
       {beforLogin
@@ -90,7 +94,10 @@ function App() {
       )
       }
       {!loginIn && !beforLogin ? (
-        <RegisterForm getRegisterDate={createAccount} />
+        <RegisterForm
+          getRegisterDate={createAccount}
+          linkToLogin={linkToLogin}
+        />
       ) : (
         loginIn && (
         <MainPage

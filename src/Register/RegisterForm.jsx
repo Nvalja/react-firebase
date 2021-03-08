@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import '../style/Form.scss';
 
-export const RegisterForm = ({ getRegisterDate }) => {
+export const RegisterForm = ({ getRegisterDate, linkToLogin }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -140,10 +140,14 @@ export const RegisterForm = ({ getRegisterDate }) => {
             value="Sing up"
           />
         </form>
-        <a href="login" className="Form__link Form__link--register">
+        <span
+          onClick={linkToLogin}
+          aria-hidden="true"
+          className="Form__link Form__link--register"
+        >
           Already registered?
           <span className="Form__link--black"> Log in</span>
-        </a>
+        </span>
       </div>
     </div>
 

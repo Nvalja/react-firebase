@@ -30,7 +30,7 @@ export const LoginForm = ({ getLoginDate, onLink }) => {
   };
 
   return (
-    <div className="wrapper" id="login">
+    <div className="wrapper">
       <div className="Form">
         <h2 className="Form__title">Login</h2>
         <form
