@@ -1,5 +1,5 @@
 @import "../App.scss";
-@import './mixins';
+@import "./mixins";
 
 .wrapper {
   padding: 20px;
@@ -23,7 +23,7 @@
   flex-direction: column;
   height: 576px;
   padding: 0 72px;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   border-radius: 57px;
   @include SmallScreen {
     padding: 0 52px;
@@ -31,12 +31,12 @@
   }
 
   &__title {
-    font-family: Roboto,sans-serif;
+    font-family: Roboto, sans-serif;
     margin: 110px 0 61px;
     font-weight: 500;
     font-size: 46px;
     line-height: 54px;
-    letter-spacing: 0.0075em;
+    letter-spacing: 0.01em;
     @include SmallScreen {
       margin: 88px 0 67px;
     }
@@ -59,11 +59,11 @@
     margin-bottom: 32px;
     width: 100%;
     height: 47px;
-    font-family: Roboto,sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 20px;
     border: none;
     background-color: transparent;
-    outline: 0px solid transparent;
+    outline: 0 solid transparent;
     border-radius: 5px;
     transition: background-color 0.3s;
     @include SmallScreen {
@@ -72,7 +72,7 @@
     }
     &--isError {
       border: 1px solid red;
-      box-shadow: inset 0px 0px 4px 1px red;
+      box-shadow: inset 0 0 4px 1px red;
     }
     &--register {
       margin-bottom: 25px;
@@ -89,7 +89,7 @@
     }
 
     &::placeholder {
-      font-family: Roboto,sans-serif;
+      font-family: Roboto, sans-serif;
       font-size: 40px;
       line-height: 40px;
       color: black;
@@ -101,7 +101,7 @@
     }
 
     &:focus {
-      box-shadow: inset 0px 0px 5px rgb(63, 63, 63);
+      box-shadow: inset 0 0 5px rgb(63, 63, 63);
       padding: 0 30px;
       &::placeholder {
         opacity: 0;
@@ -111,7 +111,7 @@
 
   &__button {
     margin-top: 48px;
-    font-family: Roboto,sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 40px;
     line-height: 47px;
     width: 277px;
@@ -127,7 +127,7 @@
       font-size: 24px;
       line-height: 28px;
     }
-    &--register{
+    &--register {
       margin-top: 19px;
       @include SmallScreen {
         margin-top: 69px;
@@ -149,12 +149,12 @@
     font-size: 20px;
     line-height: 110%;
     letter-spacing: 0.75px;
-    color: #88888C;
+    color: #88888c;
     transition: color 0.3s;
     @include SmallScreen {
       margin-top: 28px;
       font-size: 15px;
-      line-height: 16,5px;
+      line-height: 16.5px;
       white-space: nowrap;
     }
 
@@ -167,8 +167,6 @@
       font-size: 14px;
       letter-spacing: 0.1px;
     }
-   
-
     
     &:hover {
       color: black;
@@ -178,7 +176,7 @@
       color: black;
       transition: color 0.3s;
       &:hover {
-        color: #88888C;
+        color: #88888c;
       }
     }
   }

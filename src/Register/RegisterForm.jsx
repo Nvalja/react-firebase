@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import '../style/Form.scss';
 
-export const RegisterForm = ({getRegisterDate}) => {
+export const RegisterForm = ({ getRegisterDate }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -19,9 +19,10 @@ export const RegisterForm = ({getRegisterDate}) => {
     if (firstName
         && lastName
         && email
-        && pass
+        && pass.length >= 6
         && email.includes('@')
-        ) {
+        && pass.match(/[a-zа-я]/i)
+    ) {
       getRegisterDate(email, pass, firstName, lastName);
       setFirstName('');
       setLastName('');
@@ -33,10 +34,21 @@ export const RegisterForm = ({getRegisterDate}) => {
       setLastNameError(false);
     }
 
-    !pass && setPasswordError(true);
-    !firstName && setFirstNameError(true);
-    !lastName && setLastNameError(true);
-    (!email || !email.includes('@')) && setMailError(true);
+    if (pass.length < 6 || !pass.match(/[a-zа-я]/i)) {
+      setPasswordError(true);
+    }
+
+    if (!firstName) {
+      setFirstNameError(true);
+    }
+
+    if (!lastName) {
+      setLastNameError(true);
+    }
+
+    if (!email || !email.includes('@')) {
+      setMailError(true);
+    }
   };
   
   return (
@@ -54,9 +66,9 @@ export const RegisterForm = ({getRegisterDate}) => {
             type="text"
             value={firstName}
             className={classNames({
-              "Form__input--register": true,
-              "Form__input": true,
-              "Form__input--isError" : firstNameError,
+              'Form__input--register': true,
+              Form__input: true,
+              'Form__input--isError': firstNameError,
             })}
             placeholder="First name"
             onChange={(event) => {
@@ -71,9 +83,9 @@ export const RegisterForm = ({getRegisterDate}) => {
             type="text"
             value={lastName}
             className={classNames({
-              "Form__input--register": true,
-              "Form__input": true,
-              "Form__input--isError" : lastNameError,
+              'Form__input--register': true,
+              Form__input: true,
+              'Form__input--isError': lastNameError,
             })}
             placeholder="Last name"
             onChange={(event) => {
@@ -88,9 +100,9 @@ export const RegisterForm = ({getRegisterDate}) => {
             type="text"
             value={email}
             className={classNames({
-              "Form__input--register": true,
-              "Form__input": true,
-              "Form__input--isError" : mailError,
+              'Form__input--register': true,
+              Form__input: true,
+              'Form__input--isError': mailError,
             })}
             placeholder="Email"
             onChange={(event) => {
@@ -105,9 +117,9 @@ export const RegisterForm = ({getRegisterDate}) => {
             type="password"
             value={pass}
             className={classNames({
-              "Form__input--regLast": true,
-              "Form__input": true,
-              "Form__input--isError" : passwordError,
+              'Form__input--regLast': true,
+              Form__input: true,
+              'Form__input--isError': passwordError,
             })}
             placeholder="Password"
             onChange={(event) => {
@@ -115,13 +127,20 @@ export const RegisterForm = ({getRegisterDate}) => {
               setPasswordError(false);
             }}
           />
+          {passwordError
+            && (
+            <p style={{ whiteSpace: 'nowrap' }}>
+              at least 6 with numbers and letters
+            </p>
+            )
+          }
           <input
             type="submit"
             className="Form__button Form__button--register"
             value="Sing up"
           />
         </form>
-        <a href="" className="Form__link Form__link--register">
+        <a href="/" className="Form__link Form__link--register">
           Already registered?
           <span className="Form__link--black"> Log in</span>
         </a>

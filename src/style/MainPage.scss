@@ -1,5 +1,5 @@
-@import '../App.scss';
-@import './mixins';
+@import "../App.scss";
+@import "./mixins";
 
 .MainPage {
   display: flex;
@@ -12,10 +12,9 @@
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  @include MediumScreen {
-    flex-direction: column;
-  }
+  
   @include SmallScreen {
+    flex-direction: column;
     top: 44px;
     transform: translate(-50%);
   }
@@ -24,10 +23,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    @include MediumScreen {
+    @include SmallScreen {
       margin-bottom: 22px;
     }
-  
   }
 
   &__title {
@@ -47,7 +45,7 @@
     justify-content: center;
     width: 379px;
     height: 404px;
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
     border-radius: 25px;
     @include SmallScreen {
       width: 192px;
@@ -75,10 +73,9 @@
     font-family: inherit;
     font-size: 40px;
     line-height: 47px;
-    @include MediumScreen {
-      margin-top: 9px;
-    }
+    
     @include SmallScreen {
+      margin-top: 9px;
       font-size: 18px;
       line-height: 21px;
     }
@@ -99,9 +96,9 @@
     font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s, border-radius 0.3s;
-    &:hover{
+    &:hover {
       transform: scale(1.1);
-      background-color: #C4C4C4;
+      background-color: #c4c4c4;
       border-radius: 10px;
     }
     @include SmallScreen {
